@@ -13,6 +13,7 @@
 	Change XD.txt
 
 	example:
+
 	//XD.txt:
 		0	// left bar's RGB value
 		64

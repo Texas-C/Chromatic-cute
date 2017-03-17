@@ -1,0 +1,11 @@
+objects = Main.o Window.o RecButton.o cButton.o game.o
+MainWin : $(objects)
+	g++ -o  MainWin $(objects) -lSDL2 -O2 -Wall;
+Main.cpp: PublicHead.h Window.h
+Window.cpp: Window.h PublicHead.h
+RecButton.cpp: PublicHead.h RecButton.h
+cButton.cpp: cButton.h RecButton.h
+game.cpp: game.h PublicHead.h cButton.h
+.PHONY: clean
+clean:
+	rm MainWin $(objects);

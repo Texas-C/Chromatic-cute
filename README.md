@@ -1,15 +1,18 @@
 # ColorSortGame
-1. How to make
+1. How to make:
+
 	1). install libsdl2-dev
 		apt install libsdl2-dev #ubuntu
 
 	2). make / clean
 		make / make clean
 
-2. Run
+2. Run:
+
 	./MainWin
 
-3. config
+3. config:
+
 	Change XD.txt
 
 	example:

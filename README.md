@@ -13,7 +13,7 @@
 
 3. config:
 
-	Change XD.txt
+	Edit XD.txt
 
 	example:
 

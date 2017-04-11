@@ -6,7 +6,7 @@
 	2). make / clean
 		make / make clean
 
-2. RUn
+2. Run
 	./MainWin
 
 3. config

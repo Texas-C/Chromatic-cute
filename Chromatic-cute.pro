@@ -30,3 +30,6 @@ DISTFILES += \
 
 HEADERS += \
 	src/CLevelManager.hpp
+
+RESOURCES += \
+    res/resources.qrc

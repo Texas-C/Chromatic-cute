@@ -4,6 +4,7 @@
 #include <QColor>
 #include <QList>
 
+//! Level structure, for level infomation
 struct Level
 {
 public:

@@ -13,23 +13,24 @@ QT += core widgets
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 INCLUDEPATH += src
+INCLUDEPATH += src/gui
 
 # Input
 SOURCES += src/Main.cpp \
-	src/CLevelManager.cpp
-
-DISTFILES += \
-	levels/colors.json \
-	levels/levels.json \
-	res/palette.png \
-	res/splash.png \
-	res/zen.wav \
-	res/zen2.wav \
-	res/zenfirstclick.wav \
-	res/zensecondclick.wav
+	src/gui/CMainWindow.cpp \
+	src/puzzles/CPuzzleManager.cpp \
+	src/puzzles/CPuzzleRectItem.cpp \
+	src/puzzles/CPuzzleWidget.cpp
 
 HEADERS += \
-	src/CLevelManager.hpp
+	src/gui/CMainWindow.hpp \
+	src/puzzles/CPuzzleManager.hpp \
+	src/puzzles/CPuzzleRectItem.hpp \
+	src/puzzles/CPuzzleWidget.hpp
 
 RESOURCES += \
     resources.qrc
+
+FORMS += \
+	forms/CMainWindow.ui \
+	forms/CPuzzleWidget.ui

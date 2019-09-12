@@ -78,8 +78,8 @@ bool init_levels_from_json( QList<Level> &level_list, const QJsonDocument &json_
 CLevelManager::CLevelManager()
 {
 	// load level list from color.jsons and levels.json
-	QByteArray array_colors = read_json_from_file( "levels/colors.json");
-	QByteArray array_levels = read_json_from_file( "levels/levels.json");
+	QByteArray array_colors = read_json_from_file( ":/res/levels/colors.json");
+	QByteArray array_levels = read_json_from_file( ":/res/levels/levels.json");
 
 	QJsonDocument json_colors = QJsonDocument::fromJson( array_colors);
 	QJsonDocument json_levels = QJsonDocument::fromJson( array_levels);

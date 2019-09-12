@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/">
+        <file>res/levels/colors.json</file>
+        <file>res/levels/levels.json</file>
+        <file>res/sound/zen.wav</file>
+        <file>res/sound/zen2.wav</file>
+        <file>res/sound/zenfirstclick.wav</file>
+        <file>res/sound/zensecondclick.wav</file>
+        <file>res/picture/palette.png</file>
+        <file>res/picture/splash.png</file>
+    </qresource>
+</RCC>

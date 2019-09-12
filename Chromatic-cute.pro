@@ -32,4 +32,4 @@ HEADERS += \
 	src/CLevelManager.hpp
 
 RESOURCES += \
-    res/resources.qrc
+    resources.qrc

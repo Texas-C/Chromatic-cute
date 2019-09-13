@@ -16,7 +16,7 @@ public:
 	~CMainWindow();
 
 private:
-	Ui::CMainWindow *ui;
+    Ui::CMainWindow *m_ui;
 };
 
 #endif // MAINWINDOW_H

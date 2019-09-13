@@ -14,6 +14,7 @@ QT += core widgets
 
 INCLUDEPATH += src
 INCLUDEPATH += src/gui
+INCLUDEPATH += src/puzzles
 
 # Input
 SOURCES += src/Main.cpp \

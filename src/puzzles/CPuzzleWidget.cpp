@@ -3,9 +3,21 @@
 
 #include <QPainter>
 
-CPuzzleWidget::CPuzzleWidget(QWidget *parent) : QWidget(parent), ui(new Ui::CPuzzleWidget)
+CPuzzleWidget::CPuzzleWidget(QWidget *parent) : QWidget(parent),
+    m_ui(new Ui::CPuzzleWidget),
+    m_scene( new QGraphicsScene())
 {
+    m_ui->setupUi(this);
+    m_ui->m_puzzle_view->setScene( m_scene );
+
 	m_puzzle.m_size = 0;
+
+}
+
+CPuzzleWidget::~CPuzzleWidget()
+{
+    delete m_scene;
+    delete m_ui;
 }
 
 //------------------ puzzle
@@ -13,6 +25,16 @@ CPuzzleWidget::CPuzzleWidget(QWidget *parent) : QWidget(parent), ui(new Ui::CPuz
 void CPuzzleWidget::setPuzzleInfo(const PuzzleInfo &puzzle_new)
 {
 	m_puzzle = puzzle_new;
+
+    qreal	mini_width = std::min( this->width(), this->height() );
+    QSizeF	rect_size( mini_width, mini_width);
+    QPointF rect_left_top(0, 0);
+
+    // rect left_top point
+    if( this->width() > this->height())
+        rect_left_top.setX( rect_left_top.x() + mini_width );
+    else
+        rect_left_top.setY( rect_left_top.y() + mini_width );
 
 	if( !m_rect_mps.empty() )
 		m_rect_mps.clear();

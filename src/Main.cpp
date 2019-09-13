@@ -1,12 +1,13 @@
 #include <QApplication>
-#include "CPuzzleManager.hpp"
+#include "CMainWindow.hpp"
 #include <QDebug>
 
 int main (int argc, char *argv[])
 {
 	QApplication app(argc, argv);
 
-	CPuzzleManager level_manager;
+    CMainWindow main_window;
+    main_window.show();
 
 	return app.exec();
 }

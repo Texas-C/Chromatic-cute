@@ -77,7 +77,7 @@ bool init_puzzles_from_json( QList<PuzzleInfo> &puzzle_list, const QJsonDocument
 //---------- CPuzzleManager --- member methods
 CPuzzleManager::CPuzzleManager()
 {
-	// load puzzle list from color.jsons and puzzles.json
+    // load original puzzle list from color.jsons and puzzles.json
 	QByteArray array_colors = read_json_from_file( ":/res/puzzles/colors.json");
 	QByteArray array_puzzles = read_json_from_file( ":/res/puzzles/puzzles.json");
 

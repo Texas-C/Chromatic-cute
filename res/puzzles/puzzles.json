@@ -1,466 +1,466 @@
 [
   {
-	"levelName": "Carribbean",
+        "puzzleName": "Carribbean",
 	"size": 3
   },
   {
-	"levelName": "Roses",
+        "puzzleName": "Roses",
     "size": 3
   },
   {
-	"levelName": "Spring",
+        "puzzleName": "Spring",
     "size": 3
   },
   {
-	"levelName": "Mixed Feelings",
+        "puzzleName": "Mixed Feelings",
     "size": 3
   },
   {
-	"levelName": "Sunset",
+        "puzzleName": "Sunset",
     "size": 3
   },
   {
-	"levelName": "Fresh Lemons",
+        "puzzleName": "Fresh Lemons",
     "size": 3
   },
   {
-	"levelName": "Kale Anyone",
+        "puzzleName": "Kale Anyone",
     "size": 3
   },
   {
-	"levelName": "Autumn",
+        "puzzleName": "Autumn",
     "size": 3
   },
   {
-	"levelName": "soil",
+        "puzzleName": "soil",
     "size": 3
   },
   {
-	"levelName": "Opposites",
+        "puzzleName": "Opposites",
     "size": 3
   },
   {
-	"levelName": "Amber",
+        "puzzleName": "Amber",
     "size": 3
   },
   {
-	"levelName": "Salty Fun",
+        "puzzleName": "Salty Fun",
     "size": 3
   },
   {
-	"levelName": "Americana",
+        "puzzleName": "Americana",
     "size": 3
   },
   {
-	"levelName": "Bubblegum",
+        "puzzleName": "Bubblegum",
     "size": 3
   },
   {
-	"levelName": "Muted",
+        "puzzleName": "Muted",
     "size": 3
   },
   {
-	"levelName": "Harmony",
+        "puzzleName": "Harmony",
     "size": 3
   },
   {
-	"levelName": "JoyStar",
+        "puzzleName": "JoyStar",
     "size": 3
   },
   {
-	"levelName": "CMYK",
+        "puzzleName": "CMYK",
     "size": 3
   },
   {
-	"levelName": "Whales",
+        "puzzleName": "Whales",
     "size": 3
   },
   {
-	"levelName": "Gee Whiz",
+        "puzzleName": "Gee Whiz",
     "size": 3
   },
   {
-	"levelName": "Herbal Tea",
+        "puzzleName": "Herbal Tea",
     "size": 4
   },
   {
-	"levelName": "Manarola",
+        "puzzleName": "Manarola",
     "size": 4
   },
   {
-	"levelName": "This is Kinda Nice",
+        "puzzleName": "This is Kinda Nice",
     "size": 4
   },
   {
-	"levelName": "Moar Whales",
+        "puzzleName": "Moar Whales",
     "size": 4
   },
   {
-	"levelName": "Thanks for the Latte",
+        "puzzleName": "Thanks for the Latte",
     "size": 4
   },
   {
-	"levelName": "Raspberry Breve",
+        "puzzleName": "Raspberry Breve",
     "size": 4
   },
   {
-	"levelName": "It's a Virtue",
+        "puzzleName": "It's a Virtue",
     "size": 4
   },
   {
-	"levelName": "Cherry Riot",
+        "puzzleName": "Cherry Riot",
     "size": 4
   },
   {
-	"levelName": "Stocking",
+        "puzzleName": "Stocking",
     "size": 4
   },
   {
-	"levelName": "Anarchy",
+        "puzzleName": "Anarchy",
     "size": 4
   },
   {
-	"levelName": "Pink Elephant",
+        "puzzleName": "Pink Elephant",
     "size": 4
   },
   {
-	"levelName": "Nom-De-Plume",
+        "puzzleName": "Nom-De-Plume",
     "size": 4
   },
   {
-	"levelName": "Notice Me Senpai",
+        "puzzleName": "Notice Me Senpai",
     "size": 4
   },
   {
-	"levelName": "Tabby Cat",
+        "puzzleName": "Tabby Cat",
     "size": 4
   },
   {
-	"levelName": "Cherry Club",
+        "puzzleName": "Cherry Club",
     "size": 4
   },
   {
-	"levelName": "Odd But Trendy",
+        "puzzleName": "Odd But Trendy",
     "size": 4
   },
   {
-	"levelName": "Ambigous Freshness",
+        "puzzleName": "Ambigous Freshness",
     "size": 4
   },
   {
-	"levelName": "Odd But Hip",
+        "puzzleName": "Odd But Hip",
     "size": 4
   },
   {
-	"levelName": "Panda VS Bamboo",
+        "puzzleName": "Panda VS Bamboo",
     "size": 4
   },
   {
-	"levelName": "All or Nothing",
+        "puzzleName": "All or Nothing",
     "size": 4
   },
   {
-	"levelName": "Podbird",
+        "puzzleName": "Podbird",
     "size": 4
   },
   {
-	"levelName": "A Lovely Jest",
+        "puzzleName": "A Lovely Jest",
     "size": 4
   },
   {
-	"levelName": "Citrus",
+        "puzzleName": "Citrus",
     "size": 4
   },
   {
-	"levelName": "Scarlet Letter",
+        "puzzleName": "Scarlet Letter",
     "size": 4
   },
   {
-	"levelName": "Ubuntu",
+        "puzzleName": "Ubuntu",
     "size": 4
   },
   {
-	"levelName": "Microsoft",
+        "puzzleName": "Microsoft",
     "size": 4
   },
   {
-	"levelName": "Firefox",
+        "puzzleName": "Firefox",
     "size": 4
   },
   {
-	"levelName": "Android",
+        "puzzleName": "Android",
     "size": 4
   },
   {
-	"levelName": "Chrome",
+        "puzzleName": "Chrome",
     "size": 4
   },
   {
-	"levelName": "Mavericks",
+        "puzzleName": "Mavericks",
     "size": 4
   },
   {
-	"levelName": "Weekend Getaway",
+        "puzzleName": "Weekend Getaway",
     "size": 4
   },
   {
-	"levelName": "Fair Maiden",
+        "puzzleName": "Fair Maiden",
     "size": 4
   },
   {
-	"levelName": "Pokeball",
+        "puzzleName": "Pokeball",
     "size": 4
   },
   {
-	"levelName": "Vibrant",
+        "puzzleName": "Vibrant",
     "size": 4
   },
   {
-	"levelName": "JoyStar",
+        "puzzleName": "JoyStar",
     "size": 4
   },
   {
-	"levelName": "Koi",
+        "puzzleName": "Koi",
     "size": 4
   },
   {
-	"levelName": "Nolas",
+        "puzzleName": "Nolas",
     "size": 4
   },
   {
-	"levelName": "#nofilter",
+        "puzzleName": "#nofilter",
     "size": 4
   },
   {
-	"levelName": "Purple",
+        "puzzleName": "Purple",
     "size": 4
   },
   {
-	"levelName": "Faded",
+        "puzzleName": "Faded",
     "size": 5
   },
   {
-	"levelName": "Fresh Lemons",
+        "puzzleName": "Fresh Lemons",
     "size": 5
   },
   {
-	"levelName": "Ice Cream",
+        "puzzleName": "Ice Cream",
     "size": 5
   },
   {
-	"levelName": "Pale Spring",
+        "puzzleName": "Pale Spring",
     "size": 5
   },
   {
-	"levelName": "Florindo",
+        "puzzleName": "Florindo",
     "size": 5
   },
   {
-	"levelName": "Spring",
+        "puzzleName": "Spring",
     "size": 5
   },
   {
-	"levelName": "Caribean",
+        "puzzleName": "Caribean",
     "size": 5
   },
   {
-	"levelName": "Mocha",
+        "puzzleName": "Mocha",
     "size": 5
   },
   {
-	"levelName": "Spearmint",
+        "puzzleName": "Spearmint",
     "size": 5
   },
   {
-	"levelName": "Van Gogh",
+        "puzzleName": "Van Gogh",
     "size": 5
   },
   {
-	"levelName": "Hues",
+        "puzzleName": "Hues",
     "size": 5
   },
   {
-	"levelName": "Magia",
+        "puzzleName": "Magia",
     "size": 5
   },
   {
-	"levelName": "Amethyst",
+        "puzzleName": "Amethyst",
     "size": 5
   },
   {
-	"levelName": "I'm Sorry",
+        "puzzleName": "I'm Sorry",
     "size": 5
   },
   {
-	"levelName": "Pop Art",
+        "puzzleName": "Pop Art",
     "size": 5
   },
   {
-	"levelName": "CMYK",
+        "puzzleName": "CMYK",
     "size": 5
   },
   {
-	"levelName": "Your Lie In Apirl",
+        "puzzleName": "Your Lie In Apirl",
     "size": 5
   },
   {
-	"levelName": "Warm Feelings",
+        "puzzleName": "Warm Feelings",
     "size": 5
   },
   {
-	"levelName": "#nofilter",
+        "puzzleName": "#nofilter",
     "size": 5
   },
   {
-	"levelName": "Vibrant",
+        "puzzleName": "Vibrant",
     "size": 5
   },
   {
-	"levelName": "Midnight",
+        "puzzleName": "Midnight",
     "size": 5
   },
   {
-	"levelName": "Summer Time",
+        "puzzleName": "Summer Time",
     "size": 5
   },
   {
-	"levelName": "Middle School Crush",
+        "puzzleName": "Middle School Crush",
     "size": 5
   },
   {
-	"levelName": "Surf's Up",
+        "puzzleName": "Surf's Up",
     "size": 5
   },
   {
-	"levelName": "Nolas",
+        "puzzleName": "Nolas",
     "size": 5
   },
   {
-	"levelName": "Koi Pond",
+        "puzzleName": "Koi Pond",
     "size": 5
   },
   {
-	"levelName": "Preschool",
+        "puzzleName": "Preschool",
     "size": 5
   },
   {
-	"levelName": "Subconscious Burst",
+        "puzzleName": "Subconscious Burst",
     "size": 5
   },
   {
-	"levelName": "On The Balcony",
+        "puzzleName": "On The Balcony",
     "size": 5
   },
   {
-	"levelName": "Llamas Like Apples",
+        "puzzleName": "Llamas Like Apples",
     "size": 5
   },
   {
-	"levelName": "On The Rocks",
+        "puzzleName": "On The Rocks",
     "size": 5
   },
   {
-	"levelName": "Midsummer Dream",
+        "puzzleName": "Midsummer Dream",
     "size": 5
   },
   {
-	"levelName": "Watermelon",
+        "puzzleName": "Watermelon",
     "size": 5
   },
   {
-	"levelName": "Spiced Vanilla",
+        "puzzleName": "Spiced Vanilla",
     "size": 5
   },
   {
-	"levelName": "RGBY",
+        "puzzleName": "RGBY",
     "size": 5
   },
   {
-	"levelName": "Appeasing Your Date",
+        "puzzleName": "Appeasing Your Date",
     "size": 5
   },
   {
-	"levelName": "Sensei",
+        "puzzleName": "Sensei",
     "size": 5
   },
   {
-	"levelName": "Gurren",
+        "puzzleName": "Gurren",
     "size": 5
   },
   {
-	"levelName": "Manliness",
+        "puzzleName": "Manliness",
     "size": 5
   },
   {
-	"levelName": "Going Somewhere",
+        "puzzleName": "Going Somewhere",
     "size": 5
   },
   {
-	"levelName": "Spellbound",
+        "puzzleName": "Spellbound",
     "size": 5
   },
     {
-	  "levelName": "Sybil",
+          "puzzleName": "Sybil",
       "size": 5
     },
     {
-	  "levelName": "Cloudbank",
+          "puzzleName": "Cloudbank",
       "size": 5
     },
     {
-	  "levelName": "In Circles",
+          "puzzleName": "In Circles",
       "size": 5
     },
     {
-	  "levelName": "Spine",
+          "puzzleName": "Spine",
       "size": 5
     },
     {
-	  "levelName": "Boardwalk",
+          "puzzleName": "Boardwalk",
       "size": 5
     },
     {
-	  "levelName": "Red",
+          "puzzleName": "Red",
       "size": 5
     },
     {
-	  "levelName": "Jupiter",
+          "puzzleName": "Jupiter",
       "size": 5
     },
     {
-	  "levelName": "Supersede",
+          "puzzleName": "Supersede",
       "size": 5
     },
     {
-	  "levelName": "Emotional",
+          "puzzleName": "Emotional",
       "size": 5
     },
     {
-	  "levelName": "Grizzly Bear",
+          "puzzleName": "Grizzly Bear",
       "size": 5
     },
     {
-	  "levelName": "Moar Bears",
+          "puzzleName": "Moar Bears",
       "size": 5
     },
     {
-	  "levelName": "Party Pat",
+          "puzzleName": "Party Pat",
       "size": 5
     },
     {
-	  "levelName": "Can't Get Enough",
+          "puzzleName": "Can't Get Enough",
       "size": 5
     },
     {
-	  "levelName": "Holiday",
+          "puzzleName": "Holiday",
       "size": 5
     },
     {
-	  "levelName": "After Party",
+          "puzzleName": "After Party",
       "size": 5
     },
     {
-	  "levelName": "Blush",
+          "puzzleName": "Blush",
       "size": 5
     }
 ]

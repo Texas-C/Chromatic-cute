@@ -16,6 +16,7 @@ QRectF CPuzzleRectItem::boundingRect() const
 void CPuzzleRectItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
 	painter->setBrush( QBrush( m_color ) );
+    painter->setPen( QPen(m_color ));
 
     // size gained when "selected"
     if( m_flag_selected )
@@ -25,6 +26,7 @@ void CPuzzleRectItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *o
 
     painter->drawRect( QRectF( m_rect.topLeft() - QPointF( m_size_gain, m_size_gain),
                                m_rect.bottomRight() + QPointF( m_size_gain, m_size_gain)) );
+    //painter->drawRect( m_rect );
 }
 
 //---- properties

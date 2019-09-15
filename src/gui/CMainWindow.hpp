@@ -2,6 +2,7 @@
 #define CMAINWINDOW_H
 
 #include <QMainWindow>
+#include "CPuzzleManager.hpp"
 
 namespace Ui {
 class CMainWindow;
@@ -15,8 +16,16 @@ public:
 	explicit CMainWindow(QWidget *parent = nullptr);
 	~CMainWindow();
 
+    void loadSettings();
+    void saveSettings();
+
+private slots:
+
 private:
     Ui::CMainWindow *m_ui;
+
+    int m_puzzle_index;
+    CPuzzleManager m_puzzle_manager;
 };
 
 #endif // MAINWINDOW_H

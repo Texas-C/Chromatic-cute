@@ -22,22 +22,20 @@ public:
 	explicit CPuzzleWidget(QWidget *parent = nullptr);
     ~CPuzzleWidget();
 
+    void resizeRects();
     void clearRectList();
-
-    void setLevel( const int level);
-    int getLevel() const;
 
 	void setPuzzleInfo( const PuzzleInfo &puzzle_new);
 	PuzzleInfo getPuzzleInfo( ) const;
 
 protected:
+    void resizeEvent(QResizeEvent *event);
 
 private:
     Ui::CPuzzleWidget *m_ui;
     QGraphicsScene *m_scene;
 
 	PuzzleInfo	m_puzzle;
-    CPuzzleManager m_puzzle_manager;
 
     RectItemList m_rect_list;
     int m_level;

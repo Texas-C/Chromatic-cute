@@ -1,6 +1,7 @@
 #include "CPuzzleRectItem.hpp"
+#include <QDebug>
 
-const qreal RECT_SIZE_GAIN = 0.01;
+const qreal RECT_SIZE_GAIN = 0.05;
 
 CPuzzleRectItem::CPuzzleRectItem() : m_size_gain(0.0), m_flag_selected(false)
 {
@@ -18,15 +19,7 @@ void CPuzzleRectItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *o
 	painter->setBrush( QBrush( m_color ) );
     painter->setPen( QPen(m_color ));
 
-    // size gained when "selected"
-    if( m_flag_selected )
-        m_size_gain = m_rect.width() * RECT_SIZE_GAIN;	// rect size gain when selected
-    else
-        m_size_gain = 0.0;
-
-    painter->drawRect( QRectF( m_rect.topLeft() - QPointF( m_size_gain, m_size_gain),
-                               m_rect.bottomRight() + QPointF( m_size_gain, m_size_gain)) );
-    //painter->drawRect( m_rect );
+    painter->drawRect( m_rect );
 }
 
 //---- properties
@@ -43,6 +36,13 @@ void CPuzzleRectItem::setColor(const QColor &color)
 void CPuzzleRectItem::mousePressEvent( QGraphicsSceneMouseEvent *event)
 {
     m_flag_selected = !m_flag_selected;
+
+    if( m_flag_selected )
+        this->setScale( 0.95 );
+    else
+        this->setScale( 1.00 );
+
+    this->setSelected( m_flag_selected );
 
     QGraphicsItem::mousePressEvent( event );
 }

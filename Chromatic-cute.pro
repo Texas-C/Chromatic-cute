@@ -4,6 +4,7 @@ TARGET = Chromatic-cute
 INCLUDEPATH += .
 
 QT += core widgets
+CONFIG += c++11
 
 # You can make your code fail to compile if you use deprecated APIs.
 # In order to do so, uncomment the following line.

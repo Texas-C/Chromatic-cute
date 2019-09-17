@@ -22,13 +22,15 @@ SOURCES += src/Main.cpp \
 	src/gui/CMainWindow.cpp \
 	src/puzzles/CPuzzleManager.cpp \
 	src/puzzles/CPuzzleRectItem.cpp \
-	src/puzzles/CPuzzleWidget.cpp
+	src/puzzles/CPuzzleWidget.cpp \
+	src/puzzles/ColorVector.cpp
 
 HEADERS += \
 	src/gui/CMainWindow.hpp \
 	src/puzzles/CPuzzleManager.hpp \
 	src/puzzles/CPuzzleRectItem.hpp \
-	src/puzzles/CPuzzleWidget.hpp
+	src/puzzles/CPuzzleWidget.hpp \
+	src/puzzles/ColorVector.hpp
 
 RESOURCES += \
     resources.qrc

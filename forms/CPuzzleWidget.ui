@@ -34,14 +34,17 @@
      <property name="backgroundBrush">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>176</red>
-        <green>176</green>
-        <blue>176</blue>
+        <red>255</red>
+        <green>255</green>
+        <blue>255</blue>
        </color>
       </brush>
      </property>
+     <property name="alignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+     </property>
      <property name="transformationAnchor">
-      <enum>QGraphicsView::AnchorViewCenter</enum>
+      <enum>QGraphicsView::NoAnchor</enum>
      </property>
      <property name="resizeAnchor">
       <enum>QGraphicsView::AnchorViewCenter</enum>

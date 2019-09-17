@@ -1,34 +1,20 @@
+/*! Puzzle manager for manage puzzle information.*/
+
 #ifndef CLEVELMANAGER_HPP
 #define CLEVELMANAGER_HPP
 
 #include <QColor>
 #include <QList>
+#include "ColorVector.hpp"
 
-//! Color vector
-struct ColorVector
-{
-    ColorVector();
-    ColorVector( int r, int g, int b);
-    ColorVector(const QColor &color);
-    QColor toQColor();
-
-    ColorVector operator + ( const ColorVector &other);
-    ColorVector operator - ( const ColorVector &other);
-    ColorVector operator * ( const double &k);
-    ColorVector operator / ( const double &k);
-
-    int m_r;
-    int m_g;
-    int m_b;
-};
-
-//! Puzzle structure, for puzzle infomation
 struct PuzzleInfo
 {
 public:
 	PuzzleInfo();
 
 	static const int KNOWED_COLOR_CNT = 4;
+
+    bool operator == ( const PuzzleInfo &other_puzzle);
 
 	QString m_name;
 	int m_size;

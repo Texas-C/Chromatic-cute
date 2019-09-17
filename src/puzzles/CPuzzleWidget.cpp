@@ -1,8 +1,25 @@
-#include "CPuzzleWidget.hpp"
 #include "ui_CPuzzleWidget.h"
+
+#include "CPuzzleWidget.hpp"
+#include "ColorVector.hpp"
 
 #include <QPainter>
 #include <QDebug>
+
+bool rectItemListCompare( RectItemList &A, RectItemList &B)
+{
+    RectItemList::iterator it1, it2;
+
+    if(A.size() != B.size())
+        return false;
+
+    for( it1 = A.begin(), it2 = B.begin(); it1 != A.end() && it2 != B.end(); ++it1, ++it2)
+    {
+        if( *(*it1) != *(*it2))
+            return false;
+    }
+    return true;
+}
 
 //-----
 int pos2index( int x, int y, int size)
@@ -31,20 +48,19 @@ CPuzzleWidget::~CPuzzleWidget()
 
 void CPuzzleWidget::clearRectList()
 {
+    m_scene->clear();
+
     if( !m_rect_list.size())
     {
         RectItemList::iterator it;
 
         for( it = m_rect_list.begin(); it != m_rect_list.end(); ++it)
-        {
-            //m_scene->removeItem( *it );
             delete (*it);
-        }
 
         m_rect_list.clear();
-    }
 
-    m_scene->clear();
+        m_rect_list_answer.clear();
+    }
 }
 
 //------------------ puzzle
@@ -98,7 +114,9 @@ void CPuzzleWidget::setPuzzleInfo(const PuzzleInfo &puzzle_new)
             p->setColor( tmp.toQColor() );
 
             m_scene->addItem( p );
+
             m_rect_list.append( p );
+            m_rect_list_answer.append( p );
 		}
 	}
 
@@ -123,4 +141,20 @@ void CPuzzleWidget::resizeEvent(QResizeEvent *event)
 {
     this->resizeRects();
     QWidget::resizeEvent(event);
+}
+
+void CPuzzleWidget::mousePressEvent(QMouseEvent *event)
+{
+    QList<QGraphicsItem*>tmp_list = m_scene->selectedItems();
+
+    if( tmp_list.size() == 2)
+    {
+
+    }
+    else if(tmp_list.size() == 3)
+    {
+
+    }
+
+    QWidget::mousePressEvent( event );
 }

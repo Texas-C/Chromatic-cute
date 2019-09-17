@@ -6,6 +6,7 @@
 #include <QRectF>
 #include <QColor>
 
+//! CPuzzleRectItem: item for puzzle's rectangle
 class CPuzzleRectItem : public QGraphicsItem
 {
 public:
@@ -20,7 +21,10 @@ public:
     void setColor( const QColor &color);
     QColor getColor() const;
 
-	void mousePressEvent( QGraphicsSceneMouseEvent *event);
+    void mousePressEvent( QGraphicsSceneMouseEvent *event) override;
+
+    bool operator == (const CPuzzleRectItem &other_item) const;
+    bool operator != (const CPuzzleRectItem &other_item) const;
 
 private:
 	QRectF m_rect;

@@ -65,7 +65,7 @@ void CPuzzleWidget::resizeRects()
     {
         for(int j = 0; j < m_puzzle.m_size; ++j)
         {
-            QPointF top_left( rect_width* i, rect_height * j);
+            QPointF top_left( rect_width * i, rect_height * j);
 
             (*it)->setRect( QRectF( top_left, rect_size) );
             ++it;

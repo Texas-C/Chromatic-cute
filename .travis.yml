@@ -10,6 +10,6 @@ install:
         - sudo apt install qt5-default
 
 script:
-        - mkdir build && cd build && qmake && make -j$(nproc)
+        - mkdir build && cd build && qmake .. && make -j$(nproc)
 
 after_sucess:

@@ -1,13 +1,13 @@
 lanuage: cpp
 compiler: g++
 sudo: require
-dist: trusty
+dist: bionic
 
 before_install:
         - sudo apt update
 
 install:
-        - sudo apt install qt5-default
+        - sudo apt install qt5-default libqjson-dev
 
 script:
         - mkdir build && cd build && qmake .. && make -j$(nproc)

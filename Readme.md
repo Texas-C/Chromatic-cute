@@ -3,3 +3,11 @@
 A game about arranging colors. Qt rewrite version of `Chromatic` (original by https://github.com/halfsail/Chromatic)
 
 [Coding Status]: `unfinish` TuT
+
+## Dependencies:
+
+	Qt
+
+## install dependencies (etc. Ubuntu 18.04):
+
+	sudo apt install qt5-default libqjson-dev

@@ -1,6 +1,8 @@
 #ifndef CPUZZLEWIDGET_H
 #define CPUZZLEWIDGET_H
 
+/*! CPuzzleWidget is a main widget for display puzzle */
+
 #include <QWidget>
 #include <QGraphicsScene>
 
@@ -11,11 +13,13 @@
 
 typedef QList<CPuzzleRectItem*> RectItemList;
 
-bool rectItemListCompare( RectItemList &A, RectItemList &B);
+// 0 for equl, positive for difference, negative for differentsize
+int rectItemListCompare( RectItemList &A, RectItemList &B);
 
 namespace Ui{
 class CPuzzleWidget;
 }
+
 
 class CPuzzleWidget : public QWidget
 {
@@ -30,9 +34,10 @@ public:
 	void setPuzzleInfo( const PuzzleInfo &puzzle_new);
 	PuzzleInfo getPuzzleInfo( ) const;
 
+    void swapItem( CPuzzleRectItem *new_item);
+
 protected:
     void resizeEvent(QResizeEvent *event) override;
-    void mousePressEvent(QMouseEvent *event) override;
 
 private:
     Ui::CPuzzleWidget *m_ui;
@@ -43,8 +48,13 @@ private:
     RectItemList m_rect_list;
     RectItemList m_rect_list_answer;	// a copy of m_rect_list, save final answer here
 
+    CPuzzleRectItem *m_last_rect_item;
+
     int m_level;
 
 };
+
+// callback function for judge answer
+void callbackJudge( CPuzzleWidget &puzzle_widget);
 
 #endif // CPUZZLEWIDGET_H

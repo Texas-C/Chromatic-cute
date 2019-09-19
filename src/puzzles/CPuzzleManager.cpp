@@ -6,7 +6,7 @@
 #include <QJsonArray>
 
 //---------- CPuzzleInfo
-PuzzleInfo::PuzzleInfo() : m_name("Unknow"), m_size(3)
+PuzzleInfo::PuzzleInfo() : m_name("Unknow"), m_level(0), m_size(3)
 {
 	for(int i = 0; i < PuzzleInfo::KNOWED_COLOR_CNT; ++i)
 		m_colors[i] = Qt::white;
@@ -65,6 +65,7 @@ bool init_puzzles_from_json( QList<PuzzleInfo> &puzzle_list, const QJsonDocument
 	json_puzzle_array		= json_puzzles.array();
 
 	// load puzzle infomation to puzzle list
+    int index = 1;
 	for(it = json_puzzle_array.begin(); it != json_puzzle_array.end(); ++it)
 	{
 		PuzzleInfo	tmp_puzzle;
@@ -78,6 +79,7 @@ bool init_puzzles_from_json( QList<PuzzleInfo> &puzzle_list, const QJsonDocument
 		for(int i = 0; i < tmp_array.size(); ++i)
 			tmp_puzzle.m_colors[i] = qstr2qcolor( tmp_array[i].toString() );
 
+        tmp_puzzle.m_level = index++;
 		puzzle_list.push_back( tmp_puzzle );
 	}
 

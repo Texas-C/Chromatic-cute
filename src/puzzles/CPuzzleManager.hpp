@@ -17,6 +17,7 @@ public:
     bool operator == ( const PuzzleInfo &other_puzzle);
 
 	QString m_name;
+    int m_level;
 	int m_size;
 	QColor m_colors[ KNOWED_COLOR_CNT ];	// color of left-top, right-top, right-bottom, left-bottom
 };

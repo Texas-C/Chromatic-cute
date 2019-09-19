@@ -6,6 +6,7 @@ const qreal RECT_SIZE_GAIN = 0.10;
 CPuzzleRectItem::CPuzzleRectItem() : m_size_gain(0.0), m_flag_selected(false)
 {
 	this->setAcceptTouchEvents( true );
+    this->setFlag( QGraphicsItem::ItemIsSelectable );
 }
 
 //---- pure virtual functions
@@ -51,7 +52,7 @@ void CPuzzleRectItem::mousePressEvent( QGraphicsSceneMouseEvent *event)
     else
         this->setScale( 1.00 );
 
-    this->setSelected( m_flag_selected );
+    //this->setSelected( m_flag_selected );
 
     QGraphicsItem::mousePressEvent( event );
 }

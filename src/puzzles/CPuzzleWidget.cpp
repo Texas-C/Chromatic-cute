@@ -6,19 +6,19 @@
 #include <QPainter>
 #include <QDebug>
 
-bool rectItemListCompare( RectItemList &A, RectItemList &B)
+int rectItemListCompare( RectItemList &A, RectItemList &B)
 {
     RectItemList::iterator it1, it2;
 
+    int cnt = 0;
+
     if(A.size() != B.size())
-        return false;
+        return -1;
 
     for( it1 = A.begin(), it2 = B.begin(); it1 != A.end() && it2 != B.end(); ++it1, ++it2)
-    {
-        if( *(*it1) != *(*it2))
-            return false;
-    }
-    return true;
+        cnt += ( *(*it1) != *(*it2) );
+
+    return cnt;
 }
 
 //-----
@@ -57,8 +57,10 @@ void CPuzzleWidget::clearRectList()
         for( it = m_rect_list.begin(); it != m_rect_list.end(); ++it)
             delete (*it);
 
-        m_rect_list.clear();
+        for( it = m_rect_list_answer.begin(); it != m_rect_list_answer.end(); ++it)
+            delete (*it);
 
+        m_rect_list.clear();
         m_rect_list_answer.clear();
     }
 }
@@ -92,7 +94,10 @@ void CPuzzleWidget::resizeRects()
 void CPuzzleWidget::setPuzzleInfo(const PuzzleInfo &puzzle_new)
 {
     m_puzzle = puzzle_new;
+
+    // update puzzle info to widget
     m_ui->m_puzzle_name_label->setText( m_puzzle.m_name );
+    m_ui->m_level_label->setNum( m_puzzle.m_level );
 
     // clear rect list
     this->clearRectList();
@@ -109,17 +114,20 @@ void CPuzzleWidget::setPuzzleInfo(const PuzzleInfo &puzzle_new)
         for(int j = 0; j < m_puzzle.m_size; ++j)
 		{
             CPuzzleRectItem* p = new CPuzzleRectItem();
+            CPuzzleRectItem* p_answer = new CPuzzleRectItem();
             ColorVector tmp = v_tl + v1 * j + v2 * i;
 
             p->setColor( tmp.toQColor() );
+            p_answer->setColor( tmp.toQColor());
 
             m_scene->addItem( p );
 
             m_rect_list.append( p );
-            m_rect_list_answer.append( p );
+            m_rect_list_answer.append( p_answer );
 		}
 	}
 
+    // resize
     this->resizeRects();
 
     /*
@@ -143,18 +151,18 @@ void CPuzzleWidget::resizeEvent(QResizeEvent *event)
     QWidget::resizeEvent(event);
 }
 
-void CPuzzleWidget::mousePressEvent(QMouseEvent *event)
+void CPuzzleWidget::swapItem(CPuzzleRectItem *new_item)
 {
-    QList<QGraphicsItem*>tmp_list = m_scene->selectedItems();
-
-    if( tmp_list.size() == 2)
+    if( m_last_rect_item == nullptr)
     {
-
+        m_last_rect_item = new_item;
     }
-    else if(tmp_list.size() == 3)
+    else	//swap
     {
+        QColor tmp_color = m_last_rect_item->getColor();
+        m_last_rect_item->setColor( new_item->getColor());
+        new_item->setColor( tmp_color );
 
+        m_last_rect_item = nullptr;
     }
-
-    QWidget::mousePressEvent( event );
 }

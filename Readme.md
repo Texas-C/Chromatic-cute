@@ -4,6 +4,11 @@ A game about arranging colors. Qt rewrite version of `Chromatic` (original by ht
 
 [Coding Status]: `unfinish` TuT
 
+# TODO:
+
+1. GUI: Main menu / puzzle page
+2. puzzle editor
+
 ## Dependencies:
 
 	Qt

@@ -24,20 +24,28 @@ class CPuzzleWidget;
 class CPuzzleWidget : public QWidget
 {
 	Q_OBJECT
+signals:
+    void signal_puzzleSolved();
+
 public:
 	explicit CPuzzleWidget(QWidget *parent = nullptr);
     ~CPuzzleWidget() override;
 
     void resizeRects();
     void clearRectList();
+    void shuffleRectList();	//shurffle rectangle list
 
 	void setPuzzleInfo( const PuzzleInfo &puzzle_new);
 	PuzzleInfo getPuzzleInfo( ) const;
 
     void swapItem( CPuzzleRectItem *new_item);
+    bool judge();
 
 protected:
     void resizeEvent(QResizeEvent *event) override;
+
+private slots:
+    void slot_handleSelectedItem( CPuzzleRectItem* item);
 
 private:
     Ui::CPuzzleWidget *m_ui;
@@ -49,9 +57,6 @@ private:
     RectItemList m_rect_list_answer;	// a copy of m_rect_list, save final answer here
 
     CPuzzleRectItem *m_last_rect_item;
-
-    int m_level;
-
 };
 
 // callback function for judge answer

@@ -20,6 +20,9 @@ public:
     void saveSettings();
 
 private slots:
+    void slot_nextPuzzle();
+
+    void on_spinBox_valueChanged(int arg1);
 
 private:
     Ui::CMainWindow *m_ui;

@@ -2,7 +2,7 @@
 
 A game about arranging colors. Qt rewrite version of `Chromatic` (original by https://github.com/halfsail/Chromatic)
 
-[Coding Status]: `unfinish` TuT
+[Coding Status]: `v 0.1`
 
 # Change History:
 

@@ -25,11 +25,16 @@ class CPuzzleWidget : public QWidget
 {
 	Q_OBJECT
 signals:
-    void signal_puzzleSolved();
+    void signal_puzzleSolved(int level);
+    void signal_requestBackToHome();
+    void signal_requestLevel( int level );
 
 public:
 	explicit CPuzzleWidget(QWidget *parent = nullptr);
     ~CPuzzleWidget() override;
+
+    void addNewLevel( int solved_level_index);
+    void jumpToLastLevel();
 
     void resizeRects();
     void clearRectList();
@@ -47,6 +52,12 @@ protected:
 private slots:
     void slot_handleSelectedItem( CPuzzleRectItem* item);
 
+    void on_m_back_button_clicked();
+
+    void on_m_level_list_currentIndexChanged(int index);
+
+    void on_m_next_button_clicked();
+
 private:
     Ui::CPuzzleWidget *m_ui;
     QGraphicsScene *m_scene;
@@ -57,6 +68,8 @@ private:
     RectItemList m_rect_list_answer;	// a copy of m_rect_list, save final answer here
 
     CPuzzleRectItem *m_last_rect_item;
+
+    static const QList<QString> passed_message;
 };
 
 // callback function for judge answer

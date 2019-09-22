@@ -8,9 +8,29 @@ CMainWindow::CMainWindow(QWidget *parent) :
 {
     m_ui->setupUi(this);
 
-    this->loadSettings();
+    //m_ui->spinBox->setRange(0, m_puzzle_index );
     connect( m_ui->m_page_game, &CPuzzleWidget::signal_puzzleSolved,
              this,	&CMainWindow::slot_nextPuzzle);
+
+    connect( m_ui->m_page_game, &CPuzzleWidget::signal_requestBackToHome,
+             this, &CMainWindow::slot_toHomePage);
+
+    connect( m_ui->m_page_game, &CPuzzleWidget::signal_requestLevel,
+             this, &CMainWindow::slot_jumpLevel);
+
+
+    connect( m_ui->m_page_home, &CHomeWidget::signal_requestStart,
+             this,	&CMainWindow::slot_startGame);
+
+    connect( m_ui->m_page_home, &CHomeWidget::signal_requestCreditsPage,
+             this, &CMainWindow::slot_toCreditsPage);
+
+
+
+    connect( m_ui->m_page_credits, &CCreditsWidget::signal_requestBackToHome,
+             this, &CMainWindow::slot_toHomePage);
+
+    this->loadSettings();
 }
 
 CMainWindow::~CMainWindow()
@@ -20,13 +40,15 @@ CMainWindow::~CMainWindow()
     delete m_ui;
 }
 
+//---- settings ----
 void CMainWindow::loadSettings()
 {
     QSettings setting;
 
-    m_puzzle_index = setting.value("LastPuzzleIndex", 0).toInt();
+    m_puzzle_current_index = m_puzzle_index = setting.value("LastPuzzleIndex", 0).toInt();
 
-    m_ui->m_page_game->setPuzzleInfo( m_puzzle_manager.getPuzzle( m_puzzle_index) );
+    for(int i = 0; i <= m_puzzle_index; ++i)
+        m_ui->m_page_game->addNewLevel( i );
 }
 
 void CMainWindow::saveSettings()
@@ -36,13 +58,33 @@ void CMainWindow::saveSettings()
     setting.setValue("LastPuzzleIndex", m_puzzle_index);
 }
 
-void CMainWindow::slot_nextPuzzle()
+//---- slots ----
+void CMainWindow::slot_nextPuzzle(int level)
 {
-    m_ui->m_page_game->setPuzzleInfo( m_puzzle_manager.getPuzzle( ++m_puzzle_index) );
+    if( level > m_puzzle_index)
+    {
+        m_puzzle_index = level;
+        m_ui->m_page_game->addNewLevel( m_puzzle_index );
+    }
 }
 
-void CMainWindow::on_spinBox_valueChanged(int arg1)
+void CMainWindow::slot_jumpLevel( int level )
 {
-    m_puzzle_index = arg1;
-    m_ui->m_page_game->setPuzzleInfo( m_puzzle_manager.getPuzzle( m_puzzle_index) );
+    m_ui->m_page_game->setPuzzleInfo( m_puzzle_manager.getPuzzle( level) );
+}
+
+void CMainWindow::slot_toHomePage()
+{
+    m_ui->m_stacked_widget->setCurrentIndex(0);
+}
+
+void CMainWindow::slot_startGame()
+{
+    m_ui->m_stacked_widget->setCurrentIndex( 1 );
+    m_ui->m_page_game->jumpToLastLevel();
+}
+
+void CMainWindow::slot_toCreditsPage()
+{
+    m_ui->m_stacked_widget->setCurrentIndex( 2 );
 }

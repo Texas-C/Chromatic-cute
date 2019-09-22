@@ -8,6 +8,8 @@
 
 #include <algorithm>	// random_shuffle
 
+const QList<QString> CPuzzleWidget::passed_message = {"Brilliant", "Excellent", "Magnificent", "Splendid", "Spectacular", "Wonderful", "Nice >w<"};
+
 int rectItemListCompare( RectItemList &A, RectItemList &B)
 {
     RectItemList::iterator it1, it2;
@@ -56,6 +58,15 @@ CPuzzleWidget::~CPuzzleWidget()
     delete m_scene;
 }
 
+void CPuzzleWidget::addNewLevel(int solved_level_index)
+{
+    m_ui->m_level_list->addItem( QString("Level ") + QString::number(solved_level_index + 1), solved_level_index);
+}
+
+void CPuzzleWidget::jumpToLastLevel()
+{
+    m_ui->m_level_list->setCurrentIndex( m_ui->m_level_list->count() - 1);
+}
 
 //------------------ cleanup
 
@@ -65,9 +76,7 @@ void CPuzzleWidget::clearRectList()
     RectItemList::iterator it;
 
     for( it = m_rect_list.begin(); it != m_rect_list.end(); ++it)
-    {
         delete (*it);
-    }
 
     for( it = m_rect_list_answer.begin(); it != m_rect_list_answer.end(); ++it)
         delete (*it);
@@ -95,7 +104,7 @@ void CPuzzleWidget::shuffleRectList()
             if( !checkPositionOnCorner(i, j, m_puzzle.m_size - 1) )
                 m_rect_list[ pos2index(i, j, m_puzzle.m_size)]->setColor( *it++ );
 
-    if( rectItemListCompare( m_rect_list, m_rect_list_answer) == 0)
+    if( rectItemListCompare( m_rect_list, m_rect_list_answer) <= 2)
         this->shuffleRectList();	// keep shuffle while m_rect_list equal to answer;
 }
 
@@ -127,11 +136,11 @@ void CPuzzleWidget::resizeRects()
 
 void CPuzzleWidget::setPuzzleInfo(const PuzzleInfo &puzzle_new)
 {
-    m_puzzle = puzzle_new;
+    m_ui->m_puzzle_status->setText("");
+    m_ui->m_next_button->setVisible(false);
 
-    // update puzzle info to widget
+    m_puzzle = puzzle_new;
     m_ui->m_puzzle_name_label->setText( m_puzzle.m_name );
-    m_ui->m_level_label->setNum( m_puzzle.m_level );
 
     // clear rect list
     this->clearRectList();
@@ -163,20 +172,17 @@ void CPuzzleWidget::setPuzzleInfo(const PuzzleInfo &puzzle_new)
         }
     }
 
+
+    // disable rectangle which on the widgets's corner
     m_rect_list[ pos2index(0, 0, m_puzzle.m_size) ]->enableClick(false);
     m_rect_list[ pos2index(0, m_puzzle.m_size - 1, m_puzzle.m_size) ]->enableClick(false);
     m_rect_list[ pos2index(m_puzzle.m_size - 1, m_puzzle.m_size - 1, m_puzzle.m_size) ]->enableClick(false);
     m_rect_list[ pos2index(m_puzzle.m_size - 1, 0, m_puzzle.m_size) ]->enableClick(false);
 
-    /*
-    m_rect_list[ pos2index(0, 0, m_puzzle.m_size) ]->setColor( m_puzzle.m_colors[0] );
-    m_rect_list[ pos2index(0, m_puzzle.m_size - 1, m_puzzle.m_size) ]->setColor( m_puzzle.m_colors[1] );
-    m_rect_list[ pos2index(m_puzzle.m_size - 1, m_puzzle.m_size - 1, m_puzzle.m_size) ]->setColor( m_puzzle.m_colors[2] );
-    m_rect_list[ pos2index(m_puzzle.m_size - 1, 0, m_puzzle.m_size) ]->setColor( m_puzzle.m_colors[3] );
-    */
+    // shuffle rect list
+    this->shuffleRectList();
 
     // resize
-    this->shuffleRectList();
     this->resizeRects();
 }
 
@@ -210,8 +216,12 @@ void CPuzzleWidget::swapItem(CPuzzleRectItem *new_item)
 
         m_last_rect_item = nullptr;
 
-        if( judge() )
-            emit this->signal_puzzleSolved();
+        if( judge() )	//passed
+        {
+            m_ui->m_puzzle_status->setText( CPuzzleWidget::passed_message[ rand() % (CPuzzleWidget::passed_message.size())]);
+            m_ui->m_next_button->setVisible(true);
+            emit this->signal_puzzleSolved( m_puzzle.m_level );
+        }
     }
 }
 
@@ -225,3 +235,17 @@ void CPuzzleWidget::slot_handleSelectedItem( CPuzzleRectItem *item)
     this->swapItem( item );
 }
 
+void CPuzzleWidget::on_m_back_button_clicked()
+{
+    emit this->signal_requestBackToHome();
+}
+
+void CPuzzleWidget::on_m_level_list_currentIndexChanged(int index)
+{
+    emit this->signal_requestLevel(index);
+}
+
+void CPuzzleWidget::on_m_next_button_clicked()
+{
+    m_ui->m_level_list->setCurrentIndex( m_puzzle.m_level);
+}

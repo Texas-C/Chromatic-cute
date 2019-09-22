@@ -19,6 +19,8 @@ INCLUDEPATH += src/puzzles
 
 # Input
 SOURCES += src/Main.cpp \
+	src/gui/CCreditsWidget.cpp \
+	src/gui/CHomeWidget.cpp \
 	src/gui/CMainWindow.cpp \
 	src/puzzles/CPuzzleManager.cpp \
 	src/puzzles/CPuzzleRectItem.cpp \
@@ -26,6 +28,8 @@ SOURCES += src/Main.cpp \
 	src/puzzles/ColorVector.cpp
 
 HEADERS += \
+	src/gui/CCreditsWidget.hpp \
+	src/gui/CHomeWidget.hpp \
 	src/gui/CMainWindow.hpp \
 	src/puzzles/CPuzzleManager.hpp \
 	src/puzzles/CPuzzleRectItem.hpp \
@@ -36,5 +40,7 @@ RESOURCES += \
     resources.qrc
 
 FORMS += \
+	forms/CCreditsWidget.ui \
+	forms/CHomeWidget.ui \
 	forms/CMainWindow.ui \
 	forms/CPuzzleWidget.ui

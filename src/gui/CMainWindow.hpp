@@ -20,14 +20,19 @@ public:
     void saveSettings();
 
 private slots:
-    void slot_nextPuzzle();
+    void slot_nextPuzzle( int level );
+    void slot_jumpLevel ( int level );
 
-    void on_spinBox_valueChanged(int arg1);
+    void slot_toHomePage();
+    void slot_startGame();
+    void slot_toCreditsPage();
+
 
 private:
     Ui::CMainWindow *m_ui;
 
     int m_puzzle_index;
+    int m_puzzle_current_index;
     CPuzzleManager m_puzzle_manager;
 };
 

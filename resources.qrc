@@ -8,5 +8,6 @@
         <file>res/picture/splash.png</file>
         <file>res/puzzles/colors.json</file>
         <file>res/puzzles/puzzles.json</file>
+        <file>res/picture/start_icon.png</file>
     </qresource>
 </RCC>

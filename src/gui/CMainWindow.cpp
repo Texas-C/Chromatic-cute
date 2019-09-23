@@ -8,7 +8,8 @@ CMainWindow::CMainWindow(QWidget *parent) :
 {
     m_ui->setupUi(this);
 
-    //m_ui->spinBox->setRange(0, m_puzzle_index );
+	this->loadSettings();
+
     connect( m_ui->m_page_game, &CPuzzleWidget::signal_puzzleSolved,
              this,	&CMainWindow::slot_nextPuzzle);
 
@@ -29,8 +30,6 @@ CMainWindow::CMainWindow(QWidget *parent) :
 
     connect( m_ui->m_page_credits, &CCreditsWidget::signal_requestBackToHome,
              this, &CMainWindow::slot_toHomePage);
-
-    this->loadSettings();
 }
 
 CMainWindow::~CMainWindow()
@@ -49,6 +48,8 @@ void CMainWindow::loadSettings()
 
     for(int i = 0; i <= m_puzzle_index; ++i)
         m_ui->m_page_game->addNewLevel( i );
+
+	m_ui->m_page_game->initLevel();
 }
 
 void CMainWindow::saveSettings()
@@ -81,7 +82,7 @@ void CMainWindow::slot_toHomePage()
 void CMainWindow::slot_startGame()
 {
     m_ui->m_stacked_widget->setCurrentIndex( 1 );
-    m_ui->m_page_game->jumpToLastLevel();
+	m_ui->m_page_game->jumpToLastLevel();
 }
 
 void CMainWindow::slot_toCreditsPage()

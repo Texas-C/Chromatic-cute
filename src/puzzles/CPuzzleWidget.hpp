@@ -35,6 +35,7 @@ public:
 
     void addNewLevel( int solved_level_index);
     void jumpToLastLevel();
+	void initLevel();
 
     void resizeRects();
     void clearRectList();

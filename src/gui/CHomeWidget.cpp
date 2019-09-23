@@ -1,7 +1,6 @@
 #include "CHomeWidget.hpp"
 #include "ui_CHomeWidget.h"
 
-#include <QDebug>
 #include <QPainter>
 #include <QPropertyAnimation>
 
@@ -26,7 +25,6 @@ const QColor& CHomeWidget::color() const
 void CHomeWidget::setColor(QColor new_color )
 {
     m_color = new_color;
-    qDebug() << m_color.red() << m_color.green() << m_color.blue();
     update();
 }
 

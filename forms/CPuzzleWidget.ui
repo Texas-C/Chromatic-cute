@@ -93,7 +93,11 @@
     </widget>
    </item>
    <item row="2" column="0">
-    <widget class="QComboBox" name="m_level_list"/>
+    <widget class="QComboBox" name="m_level_list">
+     <property name="insertPolicy">
+      <enum>QComboBox::InsertAtTop</enum>
+     </property>
+    </widget>
    </item>
    <item row="2" column="5">
     <widget class="QPushButton" name="m_next_button">

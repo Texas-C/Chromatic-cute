@@ -1,5 +1,4 @@
 #include "CPuzzleRectItem.hpp"
-#include <QDebug>
 
 const qreal RECT_SIZE_GAIN = 0.10;
 

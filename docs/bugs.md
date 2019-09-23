@@ -21,3 +21,16 @@ A game about arranging colors. Qt rewrite version of `Chromatic` (original by ht
 1. GUI: Main menu / puzzle page [done]
 2. Tutorial
 3. puzzle editor
+
+
+# Fixed bug:
+
+* puzzle `soil` 's data not found, so removed it from resource.
+
+# issues:
+
+* Level 1 frozen on init. (critical issue) (solved(temperary))
+
+This bug caused by `QStackedWidget` & `QGarphicsItem`
+
+While `QGraphicsView` is not set as current `QStackWidget` at inital. Item couldn't grab mouse press event after stacked widget switch to graphics view. (so.. reason unknow)

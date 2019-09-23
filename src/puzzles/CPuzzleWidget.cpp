@@ -4,8 +4,6 @@
 #include "ColorVector.hpp"
 
 #include <QPainter>
-#include <QDebug>
-
 #include <algorithm>	// random_shuffle
 
 const QList<QString> CPuzzleWidget::passed_message = {"Brilliant", "Excellent", "Magnificent", "Splendid", "Spectacular", "Wonderful", "Nice >w<"};
@@ -67,6 +65,9 @@ void CPuzzleWidget::jumpToLastLevel()
 {
     m_ui->m_level_list->setCurrentIndex( m_ui->m_level_list->count() - 1);
 }
+
+void CPuzzleWidget::initLevel()
+{	m_ui->m_level_list->setCurrentIndex( -1 );	}
 
 //------------------ cleanup
 
@@ -195,7 +196,8 @@ PuzzleInfo CPuzzleWidget::getPuzzleInfo() const
 
 void CPuzzleWidget::resizeEvent(QResizeEvent *event)
 {
-    this->resizeRects();
+	if( this->m_puzzle.m_size )	//has puzzle
+		this->resizeRects();
     QWidget::resizeEvent(event);
 }
 
@@ -242,7 +244,7 @@ void CPuzzleWidget::on_m_back_button_clicked()
 
 void CPuzzleWidget::on_m_level_list_currentIndexChanged(int index)
 {
-    emit this->signal_requestLevel(index);
+	emit this->signal_requestLevel(index);
 }
 
 void CPuzzleWidget::on_m_next_button_clicked()

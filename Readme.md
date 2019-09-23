@@ -4,6 +4,14 @@ A game about arranging colors. Qt rewrite version of `Chromatic` (original by ht
 
 [Coding Status]: `v 0.1`
 
+## Dependencies:
+
+	Qt
+
+## install dependencies (etc. Ubuntu 18.04):
+
+	sudo apt install qt5-default libqjson-dev
+
 # Change History:
 
 * V0.1: basic function complete
@@ -14,14 +22,11 @@ A game about arranging colors. Qt rewrite version of `Chromatic` (original by ht
 2. Tutorial
 3. puzzle editor
 
-## Dependencies:
-
-	Qt
-
-## install dependencies (etc. Ubuntu 18.04):
-
-	sudo apt install qt5-default libqjson-dev
 
 # Fixed bug:
 
 * puzzle `soil` 's data not found, so removed it from resource.
+
+# issues:
+
+* Level 1 frozen on init. (critical issue)

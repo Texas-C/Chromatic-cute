@@ -42,6 +42,7 @@ void CHomeWidget::paintEvent( QPaintEvent *event)
 {
     QPainter painter(this);
     painter.setBrush( QBrush(QColor(m_color) ) );
+    painter.setPen( QPen( QColor(m_color)) );
 
     painter.drawRect( this->rect() );
     QWidget::paintEvent(event);

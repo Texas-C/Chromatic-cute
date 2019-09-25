@@ -48,7 +48,7 @@
    <item row="0" column="0" colspan="2" alignment="Qt::AlignLeft">
     <widget class="QPushButton" name="m_back_button">
      <property name="text">
-      <string>&lt; Back to home</string>
+      <string>&lt; Back</string>
      </property>
      <property name="flat">
       <bool>true</bool>

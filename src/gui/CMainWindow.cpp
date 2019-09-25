@@ -62,7 +62,7 @@ void CMainWindow::saveSettings()
 //---- slots ----
 void CMainWindow::slot_nextPuzzle(int level)
 {
-    if( level > m_puzzle_index)
+    if( level > m_puzzle_index && level < m_puzzle_manager.puzzleCount())
     {
         m_puzzle_index = level;
         m_ui->m_page_game->addNewLevel( m_puzzle_index );

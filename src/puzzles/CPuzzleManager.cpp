@@ -110,3 +110,6 @@ PuzzleInfo CPuzzleManager::getPuzzle(int index) const
 		return PuzzleInfo();
 	}
 }
+
+int CPuzzleManager::puzzleCount() const
+{	return m_puzzle_list.size();	}

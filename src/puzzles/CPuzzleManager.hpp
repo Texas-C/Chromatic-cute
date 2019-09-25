@@ -28,6 +28,7 @@ public:
 	CPuzzleManager();
 
 	PuzzleInfo getPuzzle( int index = 0) const;
+    int puzzleCount() const;
 
 private:
 	QList<PuzzleInfo> m_puzzle_list;

@@ -34,3 +34,5 @@ A game about arranging colors. Qt rewrite version of `Chromatic` (original by ht
 This bug caused by `QStackedWidget` & `QGarphicsItem`
 
 While `QGraphicsView` is not set as current `QStackWidget` at inital. Item couldn't grab mouse press event after stacked widget switch to graphics view. (so.. reason unknow)
+
+* Last level crash

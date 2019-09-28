@@ -19,8 +19,8 @@ signals:
 public:
     explicit CPuzzleRectItem( QObject *parent = nullptr);
 
-	QRectF boundingRect() const override;
-	void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget = nullptr) override;
+    virtual QRectF boundingRect() const override;
+    virtual void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget = nullptr) override;
 
     void setRect( const QRectF &rect);
     QRectF getRect() const;
@@ -30,7 +30,7 @@ public:
 
     void enableClick(bool flag = true);
 
-    void mousePressEvent( QGraphicsSceneMouseEvent *event) override;
+    virtual void mousePressEvent( QGraphicsSceneMouseEvent *event) override;
 
     void reset();
 

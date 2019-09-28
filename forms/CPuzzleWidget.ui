@@ -57,6 +57,15 @@
    </item>
    <item row="1" column="0" colspan="6">
     <widget class="QGraphicsView" name="m_puzzle_view">
+     <property name="frameShape">
+      <enum>QFrame::NoFrame</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Plain</enum>
+     </property>
+     <property name="lineWidth">
+      <number>0</number>
+     </property>
      <property name="verticalScrollBarPolicy">
       <enum>Qt::ScrollBarAlwaysOff</enum>
      </property>
@@ -78,6 +87,15 @@
      <property name="alignment">
       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
      </property>
+     <property name="renderHints">
+      <set>QPainter::Antialiasing|QPainter::HighQualityAntialiasing|QPainter::LosslessImageRendering|QPainter::SmoothPixmapTransform|QPainter::TextAntialiasing</set>
+     </property>
+     <property name="dragMode">
+      <enum>QGraphicsView::NoDrag</enum>
+     </property>
+     <property name="cacheMode">
+      <set>QGraphicsView::CacheBackground</set>
+     </property>
      <property name="transformationAnchor">
       <enum>QGraphicsView::NoAnchor</enum>
      </property>
@@ -85,10 +103,10 @@
       <enum>QGraphicsView::NoAnchor</enum>
      </property>
      <property name="viewportUpdateMode">
-      <enum>QGraphicsView::SmartViewportUpdate</enum>
+      <enum>QGraphicsView::FullViewportUpdate</enum>
      </property>
      <property name="rubberBandSelectionMode">
-      <enum>Qt::IntersectsItemShape</enum>
+      <enum>Qt::ContainsItemShape</enum>
      </property>
     </widget>
    </item>

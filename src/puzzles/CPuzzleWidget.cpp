@@ -6,6 +6,8 @@
 #include <QPainter>
 #include <algorithm>	// random_shuffle
 
+#include <QDebug>
+
 const QList<QString> CPuzzleWidget::passed_message = {"Brilliant", "Excellent", "Magnificent", "Splendid", "Spectacular", "Wonderful", "Nice >w<"};
 
 int rectItemListCompare( RectItemList &A, RectItemList &B)
@@ -77,7 +79,11 @@ void CPuzzleWidget::clearRectList()
     RectItemList::iterator it;
 
     for( it = m_rect_list.begin(); it != m_rect_list.end(); ++it)
+    {
+        disconnect( *it, &CPuzzleRectItem::signal_selected,
+                 this, &CPuzzleWidget::slot_handleSelectedItem);
         delete (*it);
+    }
 
     for( it = m_rect_list_answer.begin(); it != m_rect_list_answer.end(); ++it)
         delete (*it);
@@ -118,10 +124,13 @@ void CPuzzleWidget::resizeRects()
 
     RectItemList::iterator it = m_rect_list.begin();
 
-    qreal rect_width = m_ui->m_puzzle_view->width() / m_puzzle.m_size;
-    qreal rect_height = m_ui->m_puzzle_view->height() / m_puzzle.m_size;
+    qreal rect_width = qreal(m_ui->m_puzzle_view->width()) / m_puzzle.m_size;
+    qreal rect_height = qreal(m_ui->m_puzzle_view->height()) / m_puzzle.m_size;
 
     QSizeF	rect_size( rect_width, rect_height);
+
+    qDebug() << "View Size:" << m_ui->m_puzzle_view->width() << m_ui->m_puzzle_view->height();
+    qDebug() << "Rect Size:" << rect_width << rect_height;
 
     for(int i = 0; i < m_puzzle.m_size && it != m_rect_list.end(); ++i)
     {
@@ -196,8 +205,9 @@ PuzzleInfo CPuzzleWidget::getPuzzleInfo() const
 
 void CPuzzleWidget::resizeEvent(QResizeEvent *event)
 {
-	if( this->m_puzzle.m_size )	//has puzzle
-		this->resizeRects();
+    if( this->m_puzzle.m_size )	//has puzzle
+        this->resizeRects();
+
     QWidget::resizeEvent(event);
 }
 

@@ -1,4 +1,6 @@
 #include "CPuzzleRectItem.hpp"
+#include <QDebug>
+#include <QMouseEvent>
 
 const qreal RECT_SIZE_GAIN = 0.10;
 
@@ -7,6 +9,7 @@ CPuzzleRectItem::CPuzzleRectItem( QObject *parent) : QObject(parent),
     m_flag_selected(false),
     m_flag_enable_click(true)
 {
+    this->setFlag( QGraphicsItem::ItemIsSelectable );
     this->setAcceptTouchEvents( true );
 }
 
@@ -21,7 +24,7 @@ void CPuzzleRectItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *o
     painter->setBrush( QBrush( m_color ) );
     painter->setPen( QPen(m_color ));
 
-    painter->drawRect( m_rect );
+    painter->drawRect( this->boundingRect() );
 }
 
 //---- properties
@@ -51,6 +54,8 @@ void CPuzzleRectItem::enableClick(bool flag)
 //---- events handle
 void CPuzzleRectItem::mousePressEvent( QGraphicsSceneMouseEvent *event)
 {
+    QGraphicsItem::mousePressEvent( event );
+
     if( m_flag_enable_click)
     {
         m_flag_selected = !m_flag_selected;
@@ -68,7 +73,7 @@ void CPuzzleRectItem::mousePressEvent( QGraphicsSceneMouseEvent *event)
 
         emit this->signal_selected( this );
     }
-    QGraphicsItem::mousePressEvent( event );
+
 }
 
 void CPuzzleRectItem::reset()

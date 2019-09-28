@@ -26,10 +26,15 @@ A game about arranging colors. Qt rewrite version of `Chromatic` (original by ht
 # Fixed bug:
 
 * puzzle `soil` 's data not found, so removed it from resource.
+* rectangle no response when clicked.
+
+Original `PuzzleRectItem` inherits from `QGraphicsItem`. And I added a member `m_rect` for drawing. However, those rectangle didn't draw or response mouse press event some time. (that's weird)
 
 # issues:
 
 * Level 1 frozen on init. (critical issue) (solved(temperary))
+* Rectangle/blocks didn't handle mouse press event.
+* Some of rectangle didn't draw on graphics view (maybe cause by resize);
 
 This bug caused by `QStackedWidget` & `QGarphicsItem`
 

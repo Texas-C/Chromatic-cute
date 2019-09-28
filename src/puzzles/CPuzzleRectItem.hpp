@@ -3,13 +3,13 @@
 
 #include <QObject>
 
-#include <QGraphicsItem>
+#include <QGraphicsRectItem>
 #include <QPainter>
 #include <QRectF>
 #include <QColor>
 
 //! CPuzzleRectItem: item for puzzle's rectangle
-class CPuzzleRectItem : public QObject, public QGraphicsItem
+class CPuzzleRectItem : public QObject, public  QGraphicsRectItem
 {
     Q_OBJECT
 
@@ -19,11 +19,7 @@ signals:
 public:
     explicit CPuzzleRectItem( QObject *parent = nullptr);
 
-    virtual QRectF boundingRect() const override;
     virtual void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget = nullptr) override;
-
-    void setRect( const QRectF &rect);
-    QRectF getRect() const;
 
     void setColor( const QColor &color);
     QColor getColor() const;
@@ -38,7 +34,6 @@ public:
     bool operator != (const CPuzzleRectItem &other_item) const;
 
 private:
-	QRectF m_rect;
 	QColor m_color;
     qreal m_size_gain;
 

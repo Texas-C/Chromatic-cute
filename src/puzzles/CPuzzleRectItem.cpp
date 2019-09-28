@@ -13,29 +13,12 @@ CPuzzleRectItem::CPuzzleRectItem( QObject *parent) : QObject(parent),
     this->setAcceptTouchEvents( true );
 }
 
-//---- pure virtual functions
-QRectF CPuzzleRectItem::boundingRect() const
-{
-    return m_rect;
-}
-
 void CPuzzleRectItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
     painter->setBrush( QBrush( m_color ) );
     painter->setPen( QPen(m_color ));
 
     painter->drawRect( this->boundingRect() );
-}
-
-//---- properties
-void CPuzzleRectItem::setRect( const QRectF &rect)
-{
-    m_rect = rect;
-}
-
-QRectF CPuzzleRectItem::getRect() const
-{
-    return m_rect;
 }
 
 void CPuzzleRectItem::setColor(const QColor &color)

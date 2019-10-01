@@ -47,7 +47,9 @@ void CMainWindow::loadSettings()
     m_puzzle_current_index = m_puzzle_index = setting.value("LastPuzzleIndex", 0).toInt();
 
     for(int i = 0; i <= m_puzzle_index; ++i)
+    {
         m_ui->m_page_game->addNewLevel( i );
+    }
 
 	m_ui->m_page_game->initLevel();
 }

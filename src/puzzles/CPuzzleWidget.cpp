@@ -159,6 +159,7 @@ void CPuzzleWidget::setPuzzleInfo(const PuzzleInfo &puzzle_new)
     ColorVector v_tl = m_puzzle.m_colors[0];	//top left
     ColorVector v1 = ColorVector( m_puzzle.m_colors[1]) - v_tl;
     ColorVector v2 = ColorVector( m_puzzle.m_colors[3]) - v_tl;
+
     v1 = v1 / m_puzzle.m_size;
     v2 = v2 / m_puzzle.m_size;
 
@@ -168,7 +169,9 @@ void CPuzzleWidget::setPuzzleInfo(const PuzzleInfo &puzzle_new)
         {
             CPuzzleRectItem* p = new CPuzzleRectItem();
             CPuzzleRectItem* p_answer = new CPuzzleRectItem();
-            ColorVector tmp = v_tl + v1 * j + v2 * i;
+            ColorVector tmp;
+
+            tmp = v_tl + v1 * j + v2 * i;
 
             p->setColor( tmp.toQColor() );
             p_answer->setColor( tmp.toQColor());

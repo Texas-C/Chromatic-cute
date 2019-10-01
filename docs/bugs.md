@@ -30,11 +30,13 @@ A game about arranging colors. Qt rewrite version of `Chromatic` (original by ht
 
 Original `PuzzleRectItem` inherits from `QGraphicsItem`. And I added a member `m_rect` for drawing. However, those rectangle didn't draw or response mouse press event some time. (that's weird)
 
+* Level 1 frozen on init. (critical issue) (solved(temperary))
+* Rectangle/blocks didn't handle mouse press event. (solved)
+
 # issues:
 
-* Level 1 frozen on init. (critical issue) (solved(temperary))
-* Rectangle/blocks didn't handle mouse press event.
 * Some of rectangle didn't draw on graphics view (maybe cause by resize);
+* Puzzle init issue: color grid init process seems wrong (shouldn't be like `i * color_vector_x + j * color_vector_y`) em...
 
 This bug caused by `QStackedWidget` & `QGarphicsItem`
 

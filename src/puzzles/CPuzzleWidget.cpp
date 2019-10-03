@@ -35,7 +35,7 @@ bool checkPositionOnCorner( int x, int y, int size)
 
 int pos2index( int x, int y, int size)
 {
-    return x * size + y;
+    return x + size * y;
 }
 
 //--------------------------------------------------------------------------
@@ -129,14 +129,11 @@ void CPuzzleWidget::resizeRects()
 
     QSizeF	rect_size( rect_width, rect_height);
 
-    qDebug() << "View Size:" << m_ui->m_puzzle_view->width() << m_ui->m_puzzle_view->height();
-    qDebug() << "Rect Size:" << rect_width << rect_height;
-
     for(int i = 0; i < m_puzzle.m_size && it != m_rect_list.end(); ++i)
     {
         for(int j = 0; j < m_puzzle.m_size && it != m_rect_list.end(); ++j)
         {
-            QPointF top_left( rect_width * i, rect_height * j);
+            QPointF top_left( rect_width * j, rect_height * i);
 
             (*it)->setRect( QRectF( top_left, rect_size) );
             ++it;
@@ -156,12 +153,15 @@ void CPuzzleWidget::setPuzzleInfo(const PuzzleInfo &puzzle_new)
     this->clearRectList();
 
     // setup color:
-    ColorVector v_tl = m_puzzle.m_colors[0];	//top left
-    ColorVector v1 = ColorVector( m_puzzle.m_colors[1]) - v_tl;
-    ColorVector v2 = ColorVector( m_puzzle.m_colors[3]) - v_tl;
+    ColorVector v_tl(m_puzzle.m_colors[0]);	//top left
+    ColorVector v_br(m_puzzle.m_colors[2]);	//bottom right
+    ColorVector v01 = ColorVector( m_puzzle.m_colors[1]) - v_tl;
+    ColorVector v02 = ColorVector( m_puzzle.m_colors[2]) - v_tl;
+    ColorVector v03 = ColorVector( m_puzzle.m_colors[3]) - v_tl;
 
-    v1 = v1 / m_puzzle.m_size;
-    v2 = v2 / m_puzzle.m_size;
+    v01 = v01 / double(m_puzzle.m_size - 1);
+    v02 = v02 / double(m_puzzle.m_size - 1);
+    v03 = v03 / double(m_puzzle.m_size - 1);
 
     for(int i = 0; i < m_puzzle.m_size; ++i)
     {
@@ -171,7 +171,20 @@ void CPuzzleWidget::setPuzzleInfo(const PuzzleInfo &puzzle_new)
             CPuzzleRectItem* p_answer = new CPuzzleRectItem();
             ColorVector tmp;
 
-            tmp = v_tl + v1 * j + v2 * i;
+            // method 1
+            tmp = v_tl + v03 * i + v01 * j;
+
+            // method 2
+            /*
+            if( i < j)
+            {
+                tmp = v_tl + v01 * (j - i) + v02 * i;
+            }
+            else
+            {
+                tmp = v_tl + v03 * (i - j) + v02 * j;
+            }
+            */
 
             p->setColor( tmp.toQColor() );
             p_answer->setColor( tmp.toQColor());
@@ -192,8 +205,20 @@ void CPuzzleWidget::setPuzzleInfo(const PuzzleInfo &puzzle_new)
     m_rect_list[ pos2index(m_puzzle.m_size - 1, m_puzzle.m_size - 1, m_puzzle.m_size) ]->enableClick(false);
     m_rect_list[ pos2index(m_puzzle.m_size - 1, 0, m_puzzle.m_size) ]->enableClick(false);
 
+    /*
+    m_rect_list[ pos2index(0, 0, m_puzzle.m_size) ]->setColor( m_puzzle.m_colors[0]);
+    m_rect_list[ pos2index(m_puzzle.m_size - 1, 0, m_puzzle.m_size) ]->setColor(m_puzzle.m_colors[1]);
+    m_rect_list[ pos2index(m_puzzle.m_size - 1, m_puzzle.m_size - 1, m_puzzle.m_size) ]->setColor(m_puzzle.m_colors[2]);
+    m_rect_list[ pos2index(0, m_puzzle.m_size - 1, m_puzzle.m_size) ]->setColor( m_puzzle.m_colors[3]);
+
+    m_rect_list_answer[ pos2index(0, 0, m_puzzle.m_size) ]->setColor( m_puzzle.m_colors[0]);
+    m_rect_list_answer[ pos2index(m_puzzle.m_size - 1, 0, m_puzzle.m_size) ]->setColor(m_puzzle.m_colors[1]);
+    m_rect_list_answer[ pos2index(m_puzzle.m_size - 1, m_puzzle.m_size - 1, m_puzzle.m_size) ]->setColor(m_puzzle.m_colors[2]);
+    m_rect_list_answer[ pos2index(0, m_puzzle.m_size - 1, m_puzzle.m_size) ]->setColor( m_puzzle.m_colors[3]);
+    */
+
     // shuffle rect list
-    this->shuffleRectList();
+    //this->shuffleRectList();
 
     // resize
     this->resizeRects();

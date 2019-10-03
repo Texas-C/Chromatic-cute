@@ -7,7 +7,8 @@
 struct ColorVector
 {
     ColorVector();
-    ColorVector( int r, int g, int b);
+    //ColorVector( int r, int g, int b);
+    ColorVector( qreal r, qreal g, qreal b);
     ColorVector(const QColor &color);
     QColor toQColor();
 
@@ -16,9 +17,12 @@ struct ColorVector
     ColorVector operator * ( const double &k);
     ColorVector operator / ( const double &k);
 
-    int m_r;
-    int m_g;
-    int m_b;
+    //int m_r;
+    //int m_g;
+    //int m_b;
+    qreal m_r;
+    qreal m_g;
+    qreal m_b;
 };
 
 //! Puzzle structure, for puzzle infomation

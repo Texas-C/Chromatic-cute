@@ -1,23 +1,26 @@
 #include "ColorVector.hpp"
 
 #define NUM2COLOR(value) (value < 0? 0 : (value > 255? 255 : value))
+#define NUM2COLORF(value) (value < 0? 0 : (value > 1.0? 1.0: value))
 
 //---------- ColorVector
 ColorVector::ColorVector() : m_r(0), m_g(0), m_b(0)
 {}
 
-ColorVector::ColorVector( int r, int g, int b) : m_r(r), m_g(g), m_b(b)
+ColorVector::ColorVector( qreal r, qreal g, qreal b) : m_r(r), m_g(g), m_b(b)
 {}
 
 ColorVector::ColorVector(const QColor &color)
 {
-    m_r = color.red();
-    m_g = color.green();
-    m_b = color.blue();
+    color.getRgbF( &m_r, &m_g, &m_b);
 }
 
 QColor ColorVector::toQColor()
-{	return QColor( NUM2COLOR(m_r), NUM2COLOR(m_g), NUM2COLOR(m_b));	}
+{
+    QColor color;
+    color.setRgbF( NUM2COLORF(m_r), NUM2COLORF(m_g), NUM2COLORF(m_b));
+    return color;
+}
 
 ColorVector ColorVector::operator + (const ColorVector &other)
 {	return ColorVector( m_r + other.m_r, m_g + other.m_g, m_b + other.m_b);}

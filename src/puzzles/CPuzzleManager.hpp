@@ -19,7 +19,7 @@ public:
 	QString m_name;
     int m_level;
 	int m_size;
-	QColor m_colors[ KNOWED_COLOR_CNT ];	// color of left-top, right-top, right-bottom, left-bottom
+    QColor m_colors[ KNOWED_COLOR_CNT ];	// color of left-top, left-bottom, right-bottom, right-bottom
 };
 
 class CPuzzleManager

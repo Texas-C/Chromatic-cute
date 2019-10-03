@@ -44,9 +44,13 @@ QColor qstr2qcolor( QString str)
 	QByteArray buf = str.toUtf8();
 	if( buf.size() )
 	{
+        QColor color;
+
 		int r, g, b;
 		sscanf(buf.data(), "#%2x%2x%2x", &r, &g, &b);
-		return QColor(r, g, b);
+        color.setRgbF( r / 255.0,  g / 255.0, b / 255.0);
+
+        return color;
 	}
 	return Qt::white;	// return white as default
 }

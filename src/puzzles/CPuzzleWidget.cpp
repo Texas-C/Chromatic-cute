@@ -218,7 +218,7 @@ void CPuzzleWidget::setPuzzleInfo(const PuzzleInfo &puzzle_new)
     */
 
     // shuffle rect list
-    //this->shuffleRectList();
+    this->shuffleRectList();
 
     // resize
     this->resizeRects();

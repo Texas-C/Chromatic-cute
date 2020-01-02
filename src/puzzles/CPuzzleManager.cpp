@@ -1,5 +1,6 @@
 #include "CPuzzleManager.hpp"
 #include <QDebug>
+#include <QFile>
 
 #include <QJsonDocument>
 #include <QJsonObject>

@@ -1,3 +1,4 @@
 # ignore some user's qt project file
 *.pro.user*
 android*
+build
